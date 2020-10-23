@@ -11,7 +11,7 @@ public class Merchandise {
 
 	private static final double SALES_TAX = 0.10;
 	private static final double IMPORTED_TAX = 0.05;
-	private static final String[] EXEMPT_ITEMS = {"books", "pills", "chocolate"};
+	private static final String[] EXEMPT_ITEMS = {"book", "pill", "chocolate"};
 
 
 	public Merchandise(String item, int quantity, double price, boolean IsImported) {
@@ -44,7 +44,7 @@ public class Merchandise {
 
 	// Helper function that rounds a number up
 	private static double roundUp(double num) {
-		return (5.0 *((Math.floor(num * 100) + 4) / 5)) / 100;
+		return Math.round(num * 20.0) / 20.0;
 	}
 
 	// Returns a boolean whether or not an item is exempt
@@ -60,7 +60,7 @@ public class Merchandise {
 	// Checks if the line with the name of item contains one of the exempt items
 	private static boolean isItemExempt(String line) {
 		for(int i = 0; i < EXEMPT_ITEMS.length; i++) {
-			if (line.indexOf(EXEMPT_ITEMS[i]) >= 0) {
+			if (line.contains(EXEMPT_ITEMS[i])) {
 				return true;
 			} 
 		}
