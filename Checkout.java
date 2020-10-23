@@ -1,18 +1,19 @@
 import java.util.*;
 
-public class CashRegister {
+public class Checkout {
 
   public static void main(String[] args) {
     Receipt receipt = new Receipt();
-    Scanner reader = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
     String line;
     
-    while (reader.hasNextLine()) {
-      line = reader.nextLine();
+    while (sc.hasNextLine()) {
+      line = sc.nextLine();
       receipt.addItem(line);
     }
 
-    System.out.println(ReceiptFormatter.formatReceipt(receipt));
+    System.out.println(Format.formatReceipt(receipt));
+    sc.close();
   }
 
 }
