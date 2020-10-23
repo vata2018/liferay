@@ -2,20 +2,24 @@ import java.util.*;
 
 public class Receipt {
 
+	// list with all items in each input
 	private List<Merchandise> basket;
 
 	public Receipt() {
 		basket = new ArrayList<Merchandise>();
 	}
 
+	// adds items into basket
 	public void addItem(String line) {
 		basket.add(parseLine(line));
 	}
 
+	// returns the items in basket
 	public List<Merchandise> getItems() {
 		return new ArrayList<Merchandise>(basket);
 	}
 
+	// total taxes of items in basket
 	public double getTaxes() {
 		double totalTaxes = 0;
 		for (int i = 0; i < basket.size(); i++) {
@@ -24,6 +28,7 @@ public class Receipt {
 		return totalTaxes;
 	}
 
+	// total of basket
 	public double getTotal() {
 		double totalPrice = 0;
 		for (int i = 0; i < basket.size(); i++) {
@@ -31,7 +36,8 @@ public class Receipt {
 		}
 		return totalPrice;
 	}
-
+	
+	// function that parses lines in an input
 	public static Merchandise parseLine(String line) {
 
 		String item = line.substring(line.indexOf(" "), line.indexOf(" at ")).replace(" imported", "").trim();
